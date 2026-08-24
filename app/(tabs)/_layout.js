@@ -40,6 +40,34 @@ export default function TabsLayout() {
           headerTitle: "Sobre",
         }}
       />
+       <Tabs.Screen
+        name="api"
+        options={{
+          title: "API",
+          headerTitle: "Conteúdo - API",
+        }}
+      />
+       <Tabs.Screen
+        name="post"
+        options={{
+          title: "Post",
+          headerTitle: "Conteúdo - Post",
+        }}
+      />
+       <Tabs.Screen
+        name="filmes_post"
+        options={{
+          title: "Filmes Post",
+          headerTitle: "Conteúdo - Filmes Post",
+        }}
+      />
+       <Tabs.Screen
+        name="filmes_listar"
+        options={{
+          title: "Filmes Listar",
+          headerTitle: "Conteúdo - Filmes Listar",
+        }}
+      />
     </Tabs>
   );
 }
