@@ -91,7 +91,7 @@ export default function JogosListarScreen() {
           <View style={styles.carregando}>
             <ActivityIndicator
               size="large"
-              color="#1565c0"
+              color="#7B4BA3"
             />
 
             <Text style={styles.textoCarregando}>
@@ -189,7 +189,7 @@ export default function JogosListarScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#f8fbff",
+    backgroundColor: "#F5EEFF",
   },
 
   scroll: {
@@ -208,12 +208,12 @@ const styles = StyleSheet.create({
   tituloPagina: {
     fontSize: 26,
     fontWeight: "800",
-    color: "#102542",
+    color: "#6B3A8F",
   },
 
   subtitulo: {
     fontSize: 14,
-    color: "#64748b",
+    color: "#76558C",
     marginTop: 4,
   },
 
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
   textoCarregando: {
     marginTop: 10,
     fontSize: 14,
-    color: "#64748b",
+    color: "#76558C",
   },
 
   erroContainer: {
@@ -236,27 +236,27 @@ const styles = StyleSheet.create({
   },
 
   erro: {
-    color: "#c62828",
+    color: "#A33A8E",
     textAlign: "center",
     fontSize: 14,
   },
 
   botaoTentar: {
     marginTop: 12,
-    backgroundColor: "#1565c0",
+    backgroundColor: "#7B4BA3",
     paddingHorizontal: 18,
     paddingVertical: 10,
     borderRadius: 8,
   },
 
   botaoTentarTexto: {
-    color: "#fff",
+    color: "#FFFFFF",
     fontWeight: "700",
   },
 
   card: {
     flexDirection: "row",
-    backgroundColor: "#fff",
+    backgroundColor: "#FFFFFF",
     borderRadius: 12,
     marginBottom: 14,
     overflow: "hidden",
@@ -276,13 +276,13 @@ const styles = StyleSheet.create({
   imagem: {
     width: 105,
     height: 145,
-    backgroundColor: "#e2e8f0",
+    backgroundColor: "#E5D1F5",
   },
 
   semImagem: {
     width: 105,
     height: 145,
-    backgroundColor: "#e2e8f0",
+    backgroundColor: "#E5D1F5",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -300,32 +300,33 @@ const styles = StyleSheet.create({
   numero: {
     fontSize: 11,
     fontWeight: "700",
-    color: "#1565c0",
+    color: "#7B4BA3",
     marginBottom: 3,
   },
 
   titulo: {
     fontSize: 18,
     fontWeight: "800",
-    color: "#102542",
+    color: "#6B3A8F",
   },
 
   descricao: {
     fontSize: 12,
-    color: "#64748b",
+    color: "#76558C",
     marginTop: 5,
     lineHeight: 17,
   },
 
   informacao: {
     fontSize: 12,
-    color: "#475569",
+    color: "#76558C",
     marginTop: 4,
   },
 
   semJogos: {
     textAlign: "center",
-    color: "#64748b",
+    color: "#76558C",
     marginTop: 30,
   },
 });
+

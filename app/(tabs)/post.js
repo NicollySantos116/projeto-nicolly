@@ -71,16 +71,10 @@ export default function JogosCriarScreen() {
         desenvolvedora: desenvolvedora.trim(),
       };
 
-      console.log("ENVIANDO PARA A API:");
-      console.log(novoJogo);
-
       const resposta = await api.post(
         "/api/jogos",
         novoJogo
       );
-
-      console.log("RESPOSTA DA API:");
-      console.log(resposta.data);
 
       Alert.alert(
         "Jogo criado! 🎮",
@@ -93,18 +87,7 @@ export default function JogosCriarScreen() {
       setPlataforma("");
       setAnoLancamento("");
       setDesenvolvedora("");
-
     } catch (error) {
-      console.log(
-        "ERRO AO CRIAR JOGO:",
-        error.response?.status
-      );
-
-      console.log(
-        "DETALHES:",
-        error.response?.data || error.message
-      );
-
       Alert.alert(
         "Erro ao criar jogo",
         error.response?.data?.message ||
@@ -122,7 +105,6 @@ export default function JogosCriarScreen() {
         contentContainerStyle={styles.conteudo}
         keyboardShouldPersistTaps="handled"
       >
-
         <View style={styles.header}>
           <Text style={styles.tituloPagina}>
             🎮 Criar jogo
@@ -134,12 +116,10 @@ export default function JogosCriarScreen() {
         </View>
 
         <View style={styles.formulario}>
-
           <Text style={styles.tituloFormulario}>
             ➕ Novo jogo
           </Text>
 
-          
           <Text style={styles.label}>
             Título *
           </Text>
@@ -149,7 +129,7 @@ export default function JogosCriarScreen() {
             value={titulo}
             onChangeText={setTitulo}
             placeholder="Ex: Minecraft"
-            placeholderTextColor="#94a3b8"
+            placeholderTextColor="#A98BC0"
           />
 
           <Text style={styles.label}>
@@ -161,7 +141,7 @@ export default function JogosCriarScreen() {
             value={imagemUrl}
             onChangeText={setImagemUrl}
             placeholder="Cole o link da imagem"
-            placeholderTextColor="#94a3b8"
+            placeholderTextColor="#A98BC0"
             autoCapitalize="none"
             autoCorrect={false}
             keyboardType="url"
@@ -169,7 +149,6 @@ export default function JogosCriarScreen() {
 
           {imagemUrl.trim() !== "" && (
             <View style={styles.previewContainer}>
-
               <Text style={styles.previewTitulo}>
                 Prévia da imagem
               </Text>
@@ -180,17 +159,10 @@ export default function JogosCriarScreen() {
                 }}
                 style={styles.previewImagem}
                 resizeMode="cover"
-                onError={() =>
-                  console.log(
-                    "Erro ao carregar imagem"
-                  )
-                }
               />
-
             </View>
           )}
 
-  
           <Text style={styles.secao}>
             🎮 Informações do jogo
           </Text>
@@ -204,8 +176,9 @@ export default function JogosCriarScreen() {
             value={genero}
             onChangeText={setGenero}
             placeholder="Ex: Sandbox"
-            placeholderTextColor="#94a3b8"
+            placeholderTextColor="#A98BC0"
           />
+
           <Text style={styles.label}>
             Plataforma *
           </Text>
@@ -215,8 +188,9 @@ export default function JogosCriarScreen() {
             value={plataforma}
             onChangeText={setPlataforma}
             placeholder="Ex: PlayStation"
-            placeholderTextColor="#94a3b8"
+            placeholderTextColor="#A98BC0"
           />
+
           <Text style={styles.label}>
             Ano de lançamento *
           </Text>
@@ -226,9 +200,10 @@ export default function JogosCriarScreen() {
             value={anoLancamento}
             onChangeText={setAnoLancamento}
             placeholder="Ex: 2011"
-            placeholderTextColor="#94a3b8"
+            placeholderTextColor="#A98BC0"
             keyboardType="numeric"
           />
+
           <Text style={styles.label}>
             Desenvolvedora *
           </Text>
@@ -238,8 +213,9 @@ export default function JogosCriarScreen() {
             value={desenvolvedora}
             onChangeText={setDesenvolvedora}
             placeholder="Ex: Mojang"
-            placeholderTextColor="#94a3b8"
+            placeholderTextColor="#A98BC0"
           />
+
           <Pressable
             style={[
               styles.botao,
@@ -252,7 +228,7 @@ export default function JogosCriarScreen() {
               <>
                 <ActivityIndicator
                   size="small"
-                  color="#ffffff"
+                  color="#FFFFFF"
                 />
 
                 <Text style={styles.botaoTexto}>
@@ -265,7 +241,6 @@ export default function JogosCriarScreen() {
               </Text>
             )}
           </Pressable>
-
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -275,7 +250,7 @@ export default function JogosCriarScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#f8fbff",
+    backgroundColor: "#F5EEFF",
   },
 
   scroll: {
@@ -294,44 +269,46 @@ const styles = StyleSheet.create({
   tituloPagina: {
     fontSize: 26,
     fontWeight: "800",
-    color: "#102542",
+    color: "#6B3A8F",
   },
 
   subtitulo: {
     fontSize: 14,
-    color: "#64748b",
+    color: "#76558C",
     marginTop: 4,
   },
 
   formulario: {
-    backgroundColor: "#ffffff",
-    borderRadius: 14,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 16,
     padding: 18,
     marginBottom: 25,
+    borderWidth: 1,
+    borderColor: "#E5D1F5",
 
     elevation: 3,
 
-    shadowColor: "#000",
+    shadowColor: "#8E5BB7",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 3,
     },
 
-    shadowOpacity: 0.08,
-    shadowRadius: 5,
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
   },
 
   tituloFormulario: {
     fontSize: 20,
     fontWeight: "800",
-    color: "#102542",
+    color: "#6B3A8F",
     marginBottom: 15,
   },
 
   label: {
     fontSize: 13,
     fontWeight: "700",
-    color: "#334155",
+    color: "#76558C",
     marginBottom: 6,
     marginTop: 10,
   },
@@ -339,23 +316,23 @@ const styles = StyleSheet.create({
   input: {
     height: 46,
     borderWidth: 1,
-    borderColor: "#cbd5e1",
-    borderRadius: 8,
+    borderColor: "#D8BCEB",
+    borderRadius: 10,
     paddingHorizontal: 12,
     fontSize: 14,
-    color: "#102542",
-    backgroundColor: "#f8fafc",
+    color: "#6B3A8F",
+    backgroundColor: "#FCF9FF",
   },
 
   secao: {
     fontSize: 14,
     fontWeight: "800",
-    color: "#1565c0",
+    color: "#7B4BA3",
     marginTop: 20,
     marginBottom: 5,
     paddingBottom: 8,
     borderBottomWidth: 1,
-    borderBottomColor: "#e2e8f0",
+    borderBottomColor: "#E5D1F5",
   },
 
   previewContainer: {
@@ -365,7 +342,7 @@ const styles = StyleSheet.create({
   previewTitulo: {
     fontSize: 13,
     fontWeight: "700",
-    color: "#334155",
+    color: "#76558C",
     marginBottom: 8,
   },
 
@@ -373,18 +350,27 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 200,
     borderRadius: 10,
-    backgroundColor: "#e2e8f0",
+    backgroundColor: "#E5D1F5",
   },
 
   botao: {
-    backgroundColor: "#1565c0",
-    borderRadius: 8,
-    paddingVertical: 13,
+    backgroundColor: "#7B4BA3",
+    borderRadius: 12,
+    paddingVertical: 14,
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
     gap: 8,
     marginTop: 20,
+
+    shadowColor: "#6B3A8F",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 3,
   },
 
   botaoDesativado: {
@@ -392,8 +378,9 @@ const styles = StyleSheet.create({
   },
 
   botaoTexto: {
-    color: "#ffffff",
+    color: "#FFFFFF",
     fontSize: 15,
     fontWeight: "800",
   },
 });
+

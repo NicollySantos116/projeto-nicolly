@@ -1,8 +1,16 @@
-import {View,Text,StyleSheet,Image,ScrollView,TouchableOpacity,Alert,} from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 
 export default function App() {
   return (
-    <ScrollView contentContainerStyle={styles.container}> 
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.imageContainer}>
         <Image
           source={require("../../assets/foto.png")}
@@ -35,7 +43,7 @@ export default function App() {
         </Text>
       </View>
 
-      <View style={styles.buttonContainer}>  
+      <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.primaryButton}
           onPress={() =>
@@ -50,16 +58,17 @@ export default function App() {
         <TouchableOpacity
           style={styles.secondaryButton}
           onPress={() =>
-            Alert.alert("Linkedin", "Abrindo perfil do Linkedin...")
+            Alert.alert(
+              "Linkedin",
+              "Abrindo perfil do Linkedin..."
+            )
           }
         >
           <Text style={styles.secondaryButtonText}>
             Meu Linkedin
           </Text>
         </TouchableOpacity>
-
       </View>
-
     </ScrollView>
   );
 }
@@ -67,7 +76,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: "#e0c2e2",
+    backgroundColor: "#F5EEFF",
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 40,
@@ -80,10 +89,11 @@ const styles = StyleSheet.create({
     borderRadius: 75,
     overflow: "hidden",
     borderWidth: 4,
-    borderColor: "#5c3d61",
+    borderColor: "#7B4BA3",
     marginBottom: 16,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#E5D1F5",
   },
 
   image: {
@@ -94,42 +104,46 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 26,
-    fontWeight: "bold",
-    color: "#5c3d61",
+    fontWeight: "800",
+    color: "#6B3A8F",
   },
 
   subtitle: {
     fontSize: 14,
-    color: "#0c203d",
+    color: "#76558C",
     marginBottom: 24,
+    marginTop: 4,
   },
 
   card: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "#FFFFFF",
     width: "100%",
     borderRadius: 16,
     padding: 20,
     marginBottom: 16,
-    shadowColor: "#000",
+    borderWidth: 1,
+    borderColor: "#E5D1F5",
+
+    shadowColor: "#8E5BB7",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 3,
     },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
     elevation: 3,
   },
 
   cardTitle: {
     fontSize: 18,
-    fontWeight: "bold",
-    color: "#5c3d61",
+    fontWeight: "800",
+    color: "#6B3A8F",
     marginBottom: 8,
   },
 
   cardText: {
     fontSize: 14,
-    color: "#333333",
+    color: "#76558C",
     lineHeight: 20,
     marginTop: 4,
   },
@@ -141,30 +155,40 @@ const styles = StyleSheet.create({
   },
 
   primaryButton: {
-    backgroundColor: "#5c3d61",
+    backgroundColor: "#7B4BA3",
     paddingVertical: 14,
     borderRadius: 12,
     alignItems: "center",
+
+    shadowColor: "#6B3A8F",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 3,
   },
 
   primaryButtonText: {
-    color: "#ffffff",
+    color: "#FFFFFF",
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: "800",
   },
 
   secondaryButton: {
-    backgroundColor: "transparent",
+    backgroundColor: "#FFFFFF",
     paddingVertical: 14,
     borderRadius: 12,
     alignItems: "center",
     borderWidth: 2,
-    borderColor: "#5c3d61",
+    borderColor: "#7B4BA3",
   },
 
   secondaryButtonText: {
-    color: "#5c3d61",
+    color: "#7B4BA3",
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: "800",
   },
 });
+
