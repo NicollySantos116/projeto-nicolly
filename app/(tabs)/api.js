@@ -21,43 +21,45 @@ const api = axios.create({
   },
 });
 
-export default function FilmesListar() {
-  const [filmes, setFilmes] = useState([]);
+export default function JogosListarScreen() {
+  const [jogos, setJogos] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState("");
 
-  async function buscarFilmes() {
+  async function buscarJogos() {
     try {
       setCarregando(true);
       setErro("");
 
-      const resposta = await api.get("/api/filmes", {
+      const resposta = await api.get("/api/jogos", {
         params: {
-          limit: 30,
+          limit: 50,
           page: 1,
         },
       });
 
       console.log("Resposta da API:", resposta.data);
 
-      setFilmes(resposta.data.data || []);
+      setJogos(resposta.data.data || []);
     } catch (error) {
       console.log(
-        "Erro ao buscar filmes:",
+        "Erro ao buscar jogos:",
         error.response?.data || error.message
       );
 
-      setErro("Não foi possível carregar os filmes.");
+      setErro(
+        "Não foi possível carregar os jogos. Tente novamente mais tarde."
+      );
     } finally {
       setCarregando(false);
     }
   }
 
   useEffect(() => {
-    buscarFilmes();
+    buscarJogos();
   }, []);
 
-  function imagemFilme(url) {
+  function imagemJogo(url) {
     if (!url) {
       return null;
     }
@@ -77,11 +79,11 @@ export default function FilmesListar() {
       >
         <View style={styles.header}>
           <Text style={styles.tituloPagina}>
-            🎬 Filmes
+            🎮 Jogos
           </Text>
 
           <Text style={styles.subtitulo}>
-            Filmes famosos e populares
+            Jogos famosos e populares
           </Text>
         </View>
 
@@ -93,7 +95,7 @@ export default function FilmesListar() {
             />
 
             <Text style={styles.textoCarregando}>
-              Carregando filmes...
+              Carregando jogos...
             </Text>
           </View>
         )}
@@ -106,7 +108,7 @@ export default function FilmesListar() {
 
             <Pressable
               style={styles.botaoTentar}
-              onPress={buscarFilmes}
+              onPress={buscarJogos}
             >
               <Text style={styles.botaoTentarTexto}>
                 Tentar novamente
@@ -117,15 +119,15 @@ export default function FilmesListar() {
 
         {!carregando &&
           erro === "" &&
-          filmes.map((filme, index) => (
+          jogos.map((jogo, index) => (
             <View
-              key={filme.id || index}
+              key={jogo.id || index}
               style={styles.card}
             >
-              {filme.imageUrl ? (
+              {jogo.imageUrl ? (
                 <Image
                   source={{
-                    uri: imagemFilme(filme.imageUrl),
+                    uri: imagemJogo(jogo.imageUrl),
                   }}
                   style={styles.imagem}
                   resizeMode="cover"
@@ -133,40 +135,40 @@ export default function FilmesListar() {
               ) : (
                 <View style={styles.semImagem}>
                   <Text style={styles.semImagemTexto}>
-                    🎬
+                    🎮
                   </Text>
                 </View>
               )}
 
               <View style={styles.info}>
                 <Text style={styles.numero}>
-                  Filme #{index + 1}
+                  Jogo #{index + 1}
                 </Text>
 
                 <Text
                   style={styles.titulo}
                   numberOfLines={2}
                 >
-                  {filme.title}
+                  {jogo.title}
                 </Text>
 
                 <Text
                   style={styles.descricao}
                   numberOfLines={2}
                 >
-                  {filme.description}
+                  {jogo.description}
                 </Text>
 
                 <Text style={styles.informacao}>
-                  🎥 {filme.diretor}
+                  🏢 {jogo.estudio}
                 </Text>
 
                 <Text style={styles.informacao}>
-                  🎭 {filme.genero}
+                  🎭 {jogo.genero}
                 </Text>
 
                 <Text style={styles.informacao}>
-                  ⏱️ {filme.duracao_minutos} minutos
+                  🎮 {jogo.plataforma}
                 </Text>
               </View>
             </View>
@@ -174,9 +176,9 @@ export default function FilmesListar() {
 
         {!carregando &&
           erro === "" &&
-          filmes.length === 0 && (
-            <Text style={styles.semFilmes}>
-              Nenhum filme encontrado.
+          jogos.length === 0 && (
+            <Text style={styles.semJogos}>
+              Nenhum jogo encontrado.
             </Text>
           )}
       </ScrollView>
@@ -219,6 +221,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
+    marginBottom: 20,
   },
 
   textoCarregando: {
@@ -320,7 +323,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
 
-  semFilmes: {
+  semJogos: {
     textAlign: "center",
     color: "#64748b",
     marginTop: 30,
