@@ -82,6 +82,20 @@ export default function TabsLayout() {
           headerTitle: "Conteúdo - Excluir Jogos",
         }}
       />
+      <Tabs.Screen
+        name="update"
+        options={{
+          title: "Atualizar Jogos",
+          headerTitle: "Conteúdo - Atualizar Jogos",
+        }}
+      />
+      <Tabs.Screen
+        name="byId"
+        options={{
+          title: " Buscar Jogos por ID",
+          headerTitle: "Conteúdo - Jogos por ID",
+        }}
+      />
     </Tabs>
   );
 }
